@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completed Todos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Completed TODOs</h1>
+    <ul class="list-group">
+    {% for todo in dones %}
+        <li class="list-group-item">
+            {{ todo.title }}
+            {% if todo.important %}
+                <span class="badge badge-danger">Important</span>
+            {% endif %}
+            <!-- Optionally, add a delete button or other features here -->
+        </li>
+    {% empty %}
+        <li class="list-group-item">No completed tasks.</li>
+    {% endfor %}
+    </ul>
+    <a href="{% url 'todo_list' %}" class="btn btn-primary mt-3">Back to Todo List</a>
+</div>
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+</body>
+</html>
